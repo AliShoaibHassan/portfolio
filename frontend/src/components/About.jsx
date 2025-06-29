@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import AnimatedBackground from './AnimatedBackground';
+import { Bot, Zap, Lightbulb, Settings } from 'lucide-react';
 
 export default function About() {
   const focusRef = useRef(null);
@@ -201,17 +202,27 @@ export default function About() {
 
                 {/* Interests */}
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-3">What Excites Me</h4>
+                  <h4 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-3 flex items-center">
+                    <div className="w-3 h-3 bg-blue-500 dark:bg-red-500 rounded-full mr-3 animate-pulse"></div>
+                    What Excites Me
+                  </h4>
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { icon: '🤖', label: 'AI' },
-                      { icon: '🚀', label: 'Web Performance' },
-                      { icon: '💡', label: 'Innovation' },
-                      { icon: '🔧', label: 'Problem Solving' }
+                      { icon: <Bot className="w-6 h-6 text-blue-500 dark:text-blue-400" />, label: 'AI' },
+                      { icon: <Zap className="w-6 h-6 text-yellow-500 dark:text-yellow-400" />, label: 'Web Performance' },
+                      { icon: <Lightbulb className="w-6 h-6 text-orange-500 dark:text-orange-400" />, label: 'Innovation' },
+                      { icon: <Settings className="w-6 h-6 text-green-500 dark:text-green-400" />, label: 'Problem Solving' }
                     ].map((interest, index) => (
-                      <div key={index} className="bg-white dark:bg-gray-700 rounded-lg p-3 text-center hover:scale-105 transition-transform">
-                        <div className="text-2xl mb-1">{interest.icon}</div>
-                        <div className="text-xs text-gray-600 dark:text-gray-300">{interest.label}</div>
+                      <div 
+                        key={index} 
+                        className="bg-white dark:bg-gray-700 rounded-lg p-4 text-center hover:scale-105 hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-600 group cursor-pointer"
+                      >
+                        <div className="mb-2 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                          {interest.icon}
+                        </div>
+                        <div className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                          {interest.label}
+                        </div>
                       </div>
                     ))}
                   </div>
