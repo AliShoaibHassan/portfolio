@@ -8,6 +8,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import useBackgroundStore from './stores/backgroundStore'
+import { Analytics } from "@vercel/analytics/react"
 
 export default function App() {
   const { theme, toggleTheme, initializeTheme } = useBackgroundStore();
@@ -63,6 +64,7 @@ export default function App() {
         <Projects />
         <Skills />
         <Contact />
+        <Analytics />
       </main>
     </div>
   )
